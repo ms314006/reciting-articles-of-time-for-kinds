@@ -2,7 +2,7 @@ const getArticleContent = () => {
   let articleContent = '';
   const article = document.body.getElementsByClassName('columns small-12 medium-offset-2 medium-8 end')[1];
   const paragraphs = article.querySelectorAll('p:not([class])');
-  paragraphs.forEach((paragraph) => { articleContent += paragraph.innerText; });
+  paragraphs.forEach((paragraph) => { articleContent += `${paragraph.innerText} `; });
   return articleContent;
 };
 
