@@ -7,13 +7,11 @@ const getArticleContent = () => {
 };
 
 const recite = () => {
-  const synth = window.speechSynthesis;
   const articleContent = getArticleContent();
   const utterThis = new SpeechSynthesisUtterance(articleContent);
-  utterThis.pitch = 1;
-  utterThis.rate = 1;
   utterThis.lang = 'en-US';
 
+  const synth = window.speechSynthesis;
   synth.speak(utterThis);
 };
 
