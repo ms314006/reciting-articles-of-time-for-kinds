@@ -1,8 +1,15 @@
-var getSelectedTab = tab => {
-  var tabId = tab.id;
-  var sendMessage = (messageObj) => chrome.tabs.sendMessage(tabId, messageObj);
-  document.getElementById('recite').addEventListener('click', () => sendMessage({ action: 'RECITE' }));
-  document.getElementById('stopRecite').addEventListener('click', () => sendMessage({ action: 'STOP_RECITE' }));
-}
+const getSelectedTab = (tabs) => {
+  const tabId = tabs[0].id;
+  const sendMessage = messageObj => (
+    chrome.tabs.sendMessage(tabId, messageObj)
+  );
 
-chrome.tabs.getSelected(null, getSelectedTab);
+  document.getElementById('recite').addEventListener(
+    'click', () => sendMessage({ action: 'RECITE' })
+  );
+  document.getElementById('stopRecite').addEventListener(
+    'click', () => sendMessage({ action: 'STOP_RECITE' })
+  );
+};
+
+chrome.tabs.query({ active: true, }, getSelectedTab);
