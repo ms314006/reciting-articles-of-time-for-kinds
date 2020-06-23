@@ -1,4 +1,5 @@
 const getSelectedTab = (tabs) => {
+  console.log(tabs)
   const tabId = tabs[0].id;
   const sendMessage = messageObj => (
     chrome.tabs.sendMessage(tabId, messageObj)
@@ -12,4 +13,4 @@ const getSelectedTab = (tabs) => {
   );
 };
 
-chrome.tabs.query({ active: true, }, getSelectedTab);
+chrome.tabs.query({ currentWindow: true, }, getSelectedTab);
