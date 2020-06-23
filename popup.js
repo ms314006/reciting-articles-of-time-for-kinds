@@ -1,5 +1,4 @@
 const getSelectedTab = (tabs) => {
-  console.log(tabs)
   const tabId = tabs[0].id;
   const sendMessage = messageObj => (
     chrome.tabs.sendMessage(tabId, messageObj)
